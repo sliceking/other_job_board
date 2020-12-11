@@ -15,6 +15,12 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('title');
+            $table->longText('description');
+            $table->text('url');
+            $table->boolean('active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
